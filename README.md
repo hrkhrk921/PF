@@ -1,24 +1,25 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#アプリ名 <爬虫類情報共有サイト>
+・もう少しキャッチ―な名前を考えながら進める
+・苦手な人がいたら申し訳ない
 
-Things you may want to cover:
+## サイト概要
+<ペットの画像共有とケージのレイアウトや飼育環境の共有・相談ができるサービス>
 
-* Ruby version
+### サイトテーマ
+<かわいいペットの共有と動物を飼うときのhow to>
 
-* System dependencies
+### テーマを選んだ理由
+<爬虫類を飼うときに事前に調べ物をするときにまとまったサイトがなかった>
 
-* Configuration
+### ターゲットユーザ
+<爬虫類を飼っている人や爬虫類好き>
 
-* Database creation
+### 主な利用シーン
+<飼う前の準備・困ったときの相談・画像の共有>
 
-* Database initialization
+## 設計書
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1qLOyrz6oqvKERL-Bl3n5cg5Uo3z8Rl5n6c9ocjbw05k/edit#gid=0
