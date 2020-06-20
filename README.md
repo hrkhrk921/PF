@@ -17,6 +17,7 @@
 飼う前の準備・困ったときの相談・画像の共有
 
 ## 設計書
+https://app.diagrams.net/#G1N4844WvIsiVima4iHnPvDvDZGqiId0eX
 
 
 ### 機能一覧
