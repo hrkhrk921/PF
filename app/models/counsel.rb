@@ -1,0 +1,2 @@
+class Counsel < ApplicationRecord
+end

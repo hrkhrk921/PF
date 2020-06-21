@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_071348) do
+ActiveRecord::Schema.define(version: 2020_06_21_073845) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title", null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2020_06_21_071348) do
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "counsels", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "image_id"
+    t.string "title", null: false
+    t.text "body", null: false
+    t.boolean "is_settled", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
