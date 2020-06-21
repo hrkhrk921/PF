@@ -17,11 +17,11 @@
 飼う前の準備・困ったときの相談・画像の共有
 
 ## 設計書
-ER図
+#### ER図
 https://app.diagrams.net/#G1N4844WvIsiVima4iHnPvDvDZGqiId0eX
-詳細設計
+#### 詳細設計
 https://docs.google.com/spreadsheets/d/1LqXMLB_hk8nfL3oSeB9gY6YwbL_UWgMI/edit#gid=567998906
-画面遷移
+#### 画面遷移
 https://app.diagrams.net/#G1o_XTzXE8eooJmcpUdWynWwFDa65GkDCU
 
 ### 機能一覧
