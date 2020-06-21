@@ -1,0 +1,2 @@
+class CounselComment < ApplicationRecord
+end
