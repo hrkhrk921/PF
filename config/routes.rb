@@ -18,4 +18,11 @@ Rails.application.routes.draw do
   #blogのルート
   resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  #管理者のルート
+  namespace :admin do
+    get 'home' => 'home#top' #注文件数の合計を表示(管理者のみ)
+    resources :categories, only: [:index, :edit, :create, :update]
+  end
 end
