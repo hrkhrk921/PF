@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PF</title>
+    <title>Reptile Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="container">
+      <div id="header">
+        <header class="navbar navbar-inverse">
+          <div class="container">
+            <nav class='nav navbar-nav navbar-left' >
+              <span>Reptile Blog</span>
+            </nav>
+            <nav>
+              <ul class="nav navbar-nav navbar-right">
+              <!--<% if user_signed_in? %>-->
+                <!--<li><%= link_to ' Home',user_path(current_user),class: 'glyphicon glyphicon-home home' %></li>
+                <li><%= link_to ' Users',users_path,class: 'glyphicon glyphicon-user users' %></li>
+                <li><%= link_to ' Books',books_path ,class: 'glyphicon glyphicon-book books'%></li>
+                <li><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'glyphicon glyphicon-log-out logout' %></li>
+              <% else %>-->
+                <li><%= link_to ' Home' %></li>
+                <li><%= link_to ' About' %></li>
+                <li><%= link_to ' sign up' %></li>
+                <li><%= link_to ' login' %></li>
+              <!--<% end %>-->
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </div>
+      <div id="main">
+          <%= yield %>
+      </div>
+      <div id="footer">
+      <footer class="container-fluid bg-4 text-center">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <h5>Nagano Cake</h5>
+            <hr class="light">
+            <p>555-555-555</p>
+            <p>email.com</p>
+            <p>長野県軽井沢猫横丁2-78</p>
+            <div class="social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h5>営業時間</h5>
+            <hr class="light">
+            <p>平日:9:00~17:00</p>
+            <p>休日・祝日:10:00~16:00</p>
+            <p>水曜日:閉店</p>
+          </div>
+          <div class="col-12">
+          <hr class="light">
+          <h5>@CopyRight NaganoCake.inc</h5>
+        </div>
+        </div>
+      </footer>
+    </div>
+  </div>
   </body>
 </html>
