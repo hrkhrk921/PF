@@ -1,27 +1,27 @@
 <div class="container">
-  <h1>ブログ編集画面</h1>
+  <h1>相談投稿画面</h1>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <% if @blog.errors.any? %>
+      <% if @counsel.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(@counsel.errors.count, "error") %> prohibited this user from being saved:</h2>
         <ul>
-          <% @blog.errors.full_messages.each do |msg| %>
+          <% @counsel.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
           <% end %>
         </ul>
       </div>
       <% end %>
     </div>
-      <%= form_for(@blog, url: {controller: "blogs", action: "update"}) do |f| %>
-      <div class="col-xs-3 col-xs-offset-2">
+      <%= form_for(@counsel, url: {controller: "counsels", action: "create"}) do |f| %>
+      <div class="col-xs-5 col-xs-offset-2">
         <div class="field">
           <label class="image">画像</label>
           <%= f.attachment_field :image %>
         </div>
       </div>
 
-      <div class="col-xs-5 col-xs-offset-2-right">
+      <div class="col-xs-10 col-xs-offset-1">
         <table class='table table-hover table-inverse'>
         <tr>
           <th></th>
@@ -36,14 +36,14 @@
           <td><%= f.text_area :body, class: 'form-control' %></td>
         </tr>
         <tr>
-          <td>カテゴリー</td>
+          <td>ステータス</td>
           <td>
-            <%= f.collection_select :category_id, @categories, :id, :name,include_blank: "--選択してください--" %>
+          <label><%= f.radio_button :is_settled, true,  class: :rd %>受付中</label>
           </td>
         </tr>
         </table>
         <div class="actions">
-          <%= f.submit "変更を保存", class: "btn btn-primary pull-right" %>
+          <%= f.submit "投稿", class: "btn btn-primary pull-right" %>
         </div>
       </div>
       <% end %>

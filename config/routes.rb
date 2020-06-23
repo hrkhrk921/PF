@@ -15,9 +15,12 @@ Rails.application.routes.draw do
     registrations: 'admin_devises/registrations'
   }
 
-  #blogのルート
+  #マイページのルート
+  resources :users,only: [:show,:edit,:update,:index]
+  #ブログのルート
   resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #相談のルート
+  resources :counsels, only: [:new, :index, :show, :edit, :create, :update, :destroy]
 
 
   #管理者のルート
