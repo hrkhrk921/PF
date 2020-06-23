@@ -59,4 +59,18 @@ class UserDevises::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  before_action :configure_permitted_parameters,if: :devise_controller?, except: :update
+  def after_sign_up_path_for(resource)
+    flash[:notice] = "ようこそ、Reptile Blogへ"
+    root_path
+  end
+  def after_update_path_for(resource)
+    flash[:notice] = "パスワードの変更に成功しました。"
+    customers_emend_path
+  end
+  protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up,keys:[:email, :name, :is_valid])
+  end
 end
