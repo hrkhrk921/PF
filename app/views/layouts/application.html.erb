@@ -39,7 +39,7 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/blogs/new">ブログ</a>/
-                    <a class="dropdown-item" href="#">画像</a>/
+                    <a class="dropdown-item" href="/photos/new">画像</a>/
                     <a class="dropdown-item" href="/counsels/new">相談</a>
                   </div>
                 </li>
@@ -47,8 +47,8 @@
               <% else %>
                 <li><%= link_to ' Home' %></li>
                 <li><%= link_to ' About' %></li>
-                <li><%= link_to ' sign up' %></li>
-                <li><%= link_to ' login' %></li>
+                <li><%= link_to ' sign up', new_user_registration_path %></li>
+                <li><%= link_to ' login', new_user_session_path%></li>
               <% end %>
               </ul>
             </nav>

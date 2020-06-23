@@ -81,15 +81,16 @@ ActiveRecord::Schema.define(version: 2020_06_21_112915) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "image_id"
-    t.string "title"
+    t.integer "user_id", null: false
+    t.string "image_id", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
