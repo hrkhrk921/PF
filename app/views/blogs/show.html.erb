@@ -4,12 +4,12 @@
 	</div>
 	<h1>ブログ詳細</h1>
 	<div class="row">
-		<div class="col-xs-2 col-xs-offset-3">
+		<div class="col-2 col-xs-offset-3">
 			<%= attachment_image_tag @blog, :image, format: 'jpeg', size: "150x150" %>
 		</div>
-		<div class="col-xs-5 col-xs-offset-2-right">
-			<p> タイトル: <%= @blog.title %></p>
-			<p> 本文: <%= @blog.body %></p>
+		<div class="col-5 col-sm-offset-2">
+			<p> [タイトル] <%= @blog.title %></p>
+			<p> [本文] <%= @blog.body.html_safe %></p>
 			<p> カテゴリー: <%= @blog.category.name %></p>
 			<p> 投稿者: <%= link_to(@blog.user) do %>
 				<%= attachment_image_tag(@blog.user, :image, format: 'jpeg', size: "50x50", fallback: "no-image-icon.jpg") %>
@@ -38,7 +38,7 @@
         </tr>
       <% end %>
     </table>
-    <div class="col-xs-4 offset-8-right">
+    <div class="col-4 col-offset-8">
       <%= form_for [@blog, @blog_comment] do |f| %>
         <%= f.text_field :comment %>
         <%= f.submit '送信' %>

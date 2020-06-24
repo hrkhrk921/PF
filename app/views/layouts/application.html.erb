@@ -13,7 +13,7 @@
   <body>
     <div id="container">
       <div id="header">
-        <header class="navbar navbar-inverse">
+        <header class="navbar navbar-dark bg-dark">
           <div class="container">
             <nav class='nav navbar-nav navbar-left' >
               <% if admin_signed_in? %>
@@ -28,9 +28,9 @@
               <% end %>
             </nav>
             <nav>
-              <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav justify-content-end">
             <% if user_signed_in? %>
-               <p class="navbar-text navbar-left">ようこそ、<%= current_user.name %> さん！</p>
+               <span class="navbar-text navbar-left">ようこそ、<%= current_user.name %> さん！</span>
                 <li><%= link_to 'ブログ一覧', blogs_path %></li>
                 <li><%= link_to '写真一覧', photos_path %></li>
                 <li><%= link_to '相談', counsels_path %></li>
@@ -40,8 +40,8 @@
                     投稿
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/blogs/new">ブログ</a>/
-                    <a class="dropdown-item" href="/photos/new">画像</a>/
+                    <a class="dropdown-item" href="/blogs/new">ブログ</a>
+                    <a class="dropdown-item" href="/photos/new">画像</a>
                     <a class="dropdown-item" href="/counsels/new">相談</a>
                   </div>
                 </li>
