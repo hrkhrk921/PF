@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   }
 
   #マイページのルート
-  resources :users,only: [:show,:edit,:update,:index]
+  resources :users,only: [:show,:update,:index]
+  get 'user/emend' => 'users#emend'
   #ブログのルート
   resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy]
   #相談のルート

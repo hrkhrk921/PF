@@ -23,6 +23,7 @@ class BlogsController < ApplicationController
     @blog.user_id = current_user.id
     if @blog.save
       redirect_to @blog
+      flash[:notice] = "投稿されました!"
     else
       @blogs = Blog.all
       render 'index'
@@ -30,11 +31,19 @@ class BlogsController < ApplicationController
   end
 
   def update
-    
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to blog_path(@blog)
+      flash[:notice] = "更新されました!"
+    else
+      render :edit
+    end
   end
 
   def destroy
-    
+    @blog = Blog.find(params[:id])
+    @blog.destroy
+    redirect_to blogs_url
   end
 
   private

@@ -25,7 +25,7 @@ class UserDevises::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  before_action :reject_user, only: [:create]
+
   def after_sign_in_path_for(resource)
     flash[:notice] = "ログインに成功しました。"
     root_path

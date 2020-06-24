@@ -14,7 +14,7 @@
       <% end %>
     </div>
       <%= form_for(@blog, url: {controller: "blogs", action: "create"}) do |f| %>
-      <div class="col-xs-5 col-xs-offset-2">
+      <div class="col-xs-10 col-xs-offset-1">
         <div class="field">
           <label class="image">画像</label>
           <%= f.attachment_field :image %>
@@ -28,11 +28,11 @@
           <th></th>
         </tr>
         <tr>
-          <td>タイトル</td>
+          <td>投稿タイトル</td>
           <td><%= f.text_field :title, class: 'form-control' %></td>
         </tr>
         <tr>
-          <td>本文</td>
+          <td>投稿内容</td>
           <td><%= f.text_area :body, class: 'form-control' %></td>
         </tr>
         <tr>

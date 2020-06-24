@@ -31,7 +31,9 @@
               <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
                <p class="navbar-text navbar-left">ようこそ、<%= current_user.name %> さん！</p>
-                <li><%= link_to ' Home', root_path %></li>
+                <li><%= link_to 'ブログ一覧', blogs_path %></li>
+                <li><%= link_to '写真一覧', photos_path %></li>
+                <li><%= link_to '相談', counsels_path %></li>
                 <li><%= link_to "マイページ", user_path(current_user) %></li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
