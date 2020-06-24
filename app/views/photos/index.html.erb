@@ -7,7 +7,7 @@
     <%= attachment_image_tag(photo, :image, size: "200x200") %>
     <% end %>
     <p>
-    <%= attachment_image_tag(photo.user, :image_id, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
+    <%= attachment_image_tag(photo.user, :image, format: 'jpeg', size: "30x30", fallback: "no-image-icon.jpg") %>
     <%= link_to photo.user do %>
     <%= photo.user.name%>
     <% end %>
