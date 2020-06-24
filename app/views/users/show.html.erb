@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row">
-<div class="col-xs-3">
+<div class="col-xs-10">
 <table class='table'>
   <tr><%= attachment_image_tag(@user, :image_id, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
   <tr>
@@ -10,6 +10,9 @@
   <tr>
     <th>introduction</th>
     <th><%= @user.introduction %></th>
+    <% if @user == current_user %>
+      <p><%= link_to 'Edit', user_emend_path(@user), class: "btn-sm btn-success user_emend_#{@user.id}" %></p>
+    <% end %>
   </tr>
 </table>
 </div>

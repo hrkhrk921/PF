@@ -27,9 +27,19 @@ class CounselsController < ApplicationController
   end
 
   def update
+    @counsel = Counsel.find(params[:id])
+    if @counsel.update(counsel_params)
+      redirect_to counsel_path(@counsel)
+      flash[:notice] = "更新されました!"
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @counsel = Counsel.find(params[:id])
+    @counsel.destroy
+    redirect_to counsels_url
   end
 
   private

@@ -1,20 +1,20 @@
 <div class="container">
-  <h1>ブログ投稿画面</h1>
+  <h1>画像投稿</h1>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <% if @blog.errors.any? %>
+      <% if @photo.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this user from being saved:</h2>
         <ul>
-          <% @blog.errors.full_messages.each do |msg| %>
+          <% @photo.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
           <% end %>
         </ul>
       </div>
       <% end %>
     </div>
-      <%= form_for(@blog, url: {controller: "blogs", action: "create"}) do |f| %>
-      <div class="col-xs-10 col-xs-offset-1">
+      <%= form_for(@photo, url: {controller: "photos", action: "create"}) do |f| %>
+      <div class="col-xs-5 col-xs-offset-2">
         <div class="field">
           <label class="image">画像</label>
           <%= f.attachment_field :image %>
@@ -28,18 +28,8 @@
           <th></th>
         </tr>
         <tr>
-          <td>投稿タイトル</td>
-          <td><%= f.text_field :title, class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <td>投稿内容</td>
+          <td>ひとこと</td>
           <td><%= f.text_area :body, class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <td>カテゴリー</td>
-          <td>
-            <%= f.collection_select :category_id, @categories, :id, :name,include_blank: "--選択してください--" %>
-          </td>
         </tr>
         </table>
         <div class="actions">
