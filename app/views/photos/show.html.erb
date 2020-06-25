@@ -1,11 +1,24 @@
 <div class="container">
   <h2>画像詳細</h2>
   <div class="row">
-    <div class="col-12">
+    <div class="col-5">
       <%= attachment_image_tag @photo, :image, format: 'jpeg', size: "300x300" %>
+    </div>
+    <div class="col-7">
       <%= @photo.body %>
       photo_by: 
       <%= @photo.user.name%>
+      <!-- いいね機能 -->
+          <% if @photo.favorited_by?(current_user) %>
+            <%= link_to photo_favorites_path(@photo, redirect_id: 0), method: :delete do %>
+              <span class="fas fa-heart"><%= @photo.favorites.count%></span>
+            <% end %>
+          <% else %>
+            <%= link_to photo_favorites_path(@photo, redirect_id: 0), method: :post do %>
+              <span class="far fa-heart"><%= @photo.favorites.count %></span>
+            <% end %>
+          <% end %>
+      <!--投稿ユーザと閲覧ユーザが一致で表示-->
       <% if @photo.user == current_user %>
       <p><%= link_to 'Edit', edit_photo_path(@photo), class: "btn-sm btn-success edit_photo_#{@photo.id}" %></p>
       <p><%= link_to 'Destroy', @photo, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_photo_#{@photo.id}"%></p>

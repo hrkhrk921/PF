@@ -12,6 +12,7 @@
     <th><%= @user.introduction %></th>
     <% if @user == current_user %>
       <p><%= link_to 'Edit', user_emend_path(@user), class: "btn-sm btn-success user_emend_#{@user.id}" %></p>
+      <p><%= link_to "いいねした画像", favorites_users_path %>
     <% end %>
   </tr>
 </table>
