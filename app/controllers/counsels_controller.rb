@@ -5,6 +5,8 @@ class CounselsController < ApplicationController
 
   def show
     @counsel = Counsel.find(params[:id])
+    @counsel_comment = CounselComment.new
+    @counsel_comments = @counsel.counsel_comments
   end
 
   def edit

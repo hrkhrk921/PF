@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     resource :blog_comments, only: [:create, :destroy]
   end
   #相談のルート
-  resources :counsels, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+  resources :counsels, only: [:new, :index, :show, :edit, :create, :update, :destroy]do
+    resource :counsel_comments, only: [:create, :destroy]
+  end
   #インスタルート
   resources :photos, only: [:new, :index, :show, :edit, :create, :update, :destroy]
 
