@@ -1,19 +1,15 @@
 <div class="container">
-	<div class="row">
-    <div class="col-xs-9">
-      <h2>画像詳細</h2>
-      <div class="row">
-        <div class="col-xs-12 col-sm-3">
-          <%= attachment_image_tag @photo, :image, format: 'jpeg', size: "200x200" %>
-          <%= @photo.body %>
-          photo_by: 
-          <%= @photo.user.name%>
-          <% if @photo.user == current_user %>
-          <p><%= link_to 'Edit', edit_photo_path(@photo), class: "btn-sm btn-success edit_photo_#{@photo.id}" %></p>
-          <p><%= link_to 'Destroy', @photo, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_photo_#{@photo.id}"%></p>
-        <% end %>
-        </div>
-      </div>
-    </div>
+  <h2>画像詳細</h2>
+  <div class="row">
+    <div class="col-12">
+      <%= attachment_image_tag @photo, :image, format: 'jpeg', size: "300x300" %>
+      <%= @photo.body %>
+      photo_by: 
+      <%= @photo.user.name%>
+      <% if @photo.user == current_user %>
+      <p><%= link_to 'Edit', edit_photo_path(@photo), class: "btn-sm btn-success edit_photo_#{@photo.id}" %></p>
+      <p><%= link_to 'Destroy', @photo, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_photo_#{@photo.id}"%></p>
+      <% end %>
     </div>
   </div>
+</div>

@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
+@import "summernote-bs4";
+@import "summernote-custom-theme.min";
 
 body{
  position: relative;
@@ -34,6 +35,16 @@ body{
   font-size: 30px;
   padding-top: 20px;
   font-family:'Bookman Old Style'
+}
+
+.nav a{
+  color: white;
+}
+.dropdown-item {
+    background-color: #212529;
+}
+.dropdown-menu{
+  background-color: #212529;
 }
 
 .input-label{

@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   resources :users,only: [:show,:update,:index]
   get 'user/emend' => 'users#emend'
   #ブログのルート
-  resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+  resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
+    resource :blog_comments, only: [:create, :destroy]
+  end
   #相談のルート
   resources :counsels, only: [:new, :index, :show, :edit, :create, :update, :destroy]
   #インスタルート

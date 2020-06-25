@@ -1,10 +1,12 @@
 class BlogsController < ApplicationController
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order('id DESC')
   end
 
   def show
     @blog = Blog.find(params[:id])
+    @blog_comment = BlogComment.new
+    @blog_comments = @blog.blog_comments
   end
 
   def edit
