@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :counsels
   has_many :photos
+  has_many :favorites
+  has_many :favorite_photos, through: :favorites, source: :photo
 end

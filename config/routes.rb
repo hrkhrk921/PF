@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   }
 
   #マイページのルート
-  resources :users,only: [:show,:update,:index]
+  resources :users,only: [:show,:update,:index]do
+  collection do
+      get :favorites
+    end
+  end
   get 'user/emend' => 'users#emend'
   #ブログのルート
   resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
@@ -27,7 +31,9 @@ Rails.application.routes.draw do
     resource :counsel_comments, only: [:create, :destroy]
   end
   #インスタルート
-  resources :photos, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+  resources :photos, only: [:new, :index, :show, :edit, :create, :update, :destroy]do
+  resource :favorites, only: [:create, :destroy]
+  end
 
   #管理者のルート
   namespace :admin do
