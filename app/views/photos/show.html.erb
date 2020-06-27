@@ -9,15 +9,9 @@
       photo_by: 
       <%= @photo.user.name%>
       <!-- いいね機能 -->
-          <% if @photo.favorited_by?(current_user) %>
-            <%= link_to photo_favorites_path(@photo, redirect_id: 0), method: :delete do %>
-              <span class="fas fa-heart"><%= @photo.favorites.count%></span>
-            <% end %>
-          <% else %>
-            <%= link_to photo_favorites_path(@photo, redirect_id: 0), method: :post do %>
-              <span class="far fa-heart"><%= @photo.favorites.count %></span>
-            <% end %>
-          <% end %>
+      <p id="favorite-<%= @photo.id %>">
+      <%= render partial: 'favorites/favorite', locals: { photo: @photo } %>
+      </p>
       <!--投稿ユーザと閲覧ユーザが一致で表示-->
       <% if @photo.user == current_user %>
       <p><%= link_to 'Edit', edit_photo_path(@photo), class: "btn-sm btn-success edit_photo_#{@photo.id}" %></p>
