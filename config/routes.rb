@@ -17,9 +17,12 @@ Rails.application.routes.draw do
 
   #マイページのルート
   resources :users,only: [:show,:update,:index]do
-  collection do
-      get :favorites
+    collection do
+        get :favorites
     end
+    resource :relationships, only: [:create, :destroy]
+    get 'follows' => 'relationships#follower', as: 'follows'
+    get 'followers' => 'relationships#followed', as: 'followers'
   end
   get 'user/emend' => 'users#emend'
   #ブログのルート
