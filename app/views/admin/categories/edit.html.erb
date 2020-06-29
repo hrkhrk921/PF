@@ -1,0 +1,33 @@
+<div class="container">
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-1">
+    <h3>カテゴリー編集</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-5 col-xs-offset-1">
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- ジャンル編集フォーム  -->
+<div class="row">
+  <div class="col-xs-5 col-xs-offset-1">
+    <%= form_for(@category, url: {controller: "admin/categories", action: "update"}) do |f| %>
+      <label>カテゴリー</label>
+      <%= f.text_field :name %>
+      <label><%= f.radio_button :is_valid, true,  class: :rd %>有効</label>
+      <label><%= f.radio_button :is_valid, false,  class: :rd %>無効</label>
+      <%= f.submit "変更を保存する" %>
+    <% end %>
+  </div>
+</div>
+</div>

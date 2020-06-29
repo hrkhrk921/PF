@@ -1,0 +1,116 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";            /*ここを追加*/
+@import "summernote-bs4";
+@import "summernote-custom-theme.min";
+
+body{
+ position: relative;
+}
+
+.container{
+  height: 100%;
+}
+
+.bg-4 {
+  background-color: black;
+  color: #ffffff;
+  width: 100%
+}
+.navbar-left span{
+  color: white;
+  font-size: 30px;
+  padding-top: 20px;
+  font-family:'Bookman Old Style'
+}
+
+.nav a{
+  color: white;
+}
+.dropdown-item {
+    background-color: #212529;
+}
+.dropdown-menu{
+  background-color: #212529;
+}
+
+.input-label{
+  width :150px;
+}
+
+/*----- フッター下部設定 -----*/
+html,body{
+    height: 100%;   /* ブラウザ画面の高さ */
+                    /* htmlとbody要素は内包しているコンテンツの部分までしか高さが出ない*/
+}
+div#container{
+    position: relative;      /* フッターを位置指定するための基準設定を、まずフッターの親に書く */
+    min-height: 100%;        /* 全部囲ってるdiv#containerは、”最低でも”高さ100%（＝ブラウザ画面めいっぱい） */
+                             /* min-heightは最低限の高さを指定するプロパティ。コンテンツ量が増えれば、高さは伸びる */
+    height: auto !important; /* IE6じゃmin-height使えないからIE6専用にこの行と次の行をこう書く */
+    height: 100%
+}
+div#main{
+    padding-bottom:120px; /* 高さ50pxのフッターだから、その分空ける */
+}
+div#footer{
+    position: absolute;  /* フッターを絶対配置に指定する設定 */
+    bottom: 0;           /* フッターを一番下に置く */
+    width: 100%;
+    height: 120px;        /* フッターの高さ */
+    background-color:#CCCCCC;
+}
+
+
+/*----- footerのSNSデザイン-----*/
+
+i{
+  font-size:30px;
+}
+
+.fa-instagram {
+  color: #FF3366;
+  margin-right: 10px;
+}
+
+.fa-facebook {
+  color: #003399;
+  margin-right: 10px;
+}
+
+.fa-youtube {
+  color: #FF3300;
+}
+.fa-cat{
+ color:white;
+}
+.sns{
+ border-bottom: dotted 3px gray;
+}
+
+.social{
+  display:block;
+  margin-top:5px;
+}
+
+span .brand:hover {
+  color:#FFFF88;
+  transition-duration: 0.5s;
+}
+
+.glyphicon-search{
+  color: #fff;
+}
