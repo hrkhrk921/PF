@@ -71,3 +71,9 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0'
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
+
+#デプロイ
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
