@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_112915) do
+ActiveRecord::Schema.define(version: 2020_07_02_070906) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,7 +57,9 @@ ActiveRecord::Schema.define(version: 2020_06_21_112915) do
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_id"
     t.index ["counsel_id"], name: "index_counsel_comments_on_counsel_id"
+    t.index ["parent_id"], name: "index_counsel_comments_on_parent_id"
     t.index ["user_id"], name: "index_counsel_comments_on_user_id"
   end
 
