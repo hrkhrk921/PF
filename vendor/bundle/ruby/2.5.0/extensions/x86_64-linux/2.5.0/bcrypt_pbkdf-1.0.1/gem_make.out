@@ -1,0 +1,25 @@
+current directory: /home/vagrant/work/PF/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200701-11387-1fbswog.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/work/PF/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR=" clean
+make: Warning: File `Makefile' has modification time 0.5 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/work/PF/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR="
+make: Warning: File `Makefile' has modification time 0.44 s in the future
+compiling bcrypt_pbkdf.c
+compiling bcrypt_pbkdf_ext.c
+compiling blowfish.c
+compiling explicit_bzero.c
+compiling hash_sha512.c
+linking shared-object bcrypt_pbkdf_ext.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/work/PF/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR=" install
+make: Warning: File `bcrypt_pbkdf_ext.so' has modification time 0.48 s in the future
+/usr/bin/install -c -m 0755 bcrypt_pbkdf_ext.so ./.gem.20200701-11387-1d71xhk
+make: warning:  Clock skew detected.  Your build may be incomplete.
