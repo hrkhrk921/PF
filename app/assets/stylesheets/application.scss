@@ -69,3 +69,42 @@ div#footer{
     color:white;
 }
 
+.brand-name{
+ font-family:cursive;
+}
+
+.welcome1{
+ font-family:cursive;
+}
+.welcome{
+  font-family:Yu Gothic;
+  color:#333333;
+}
+
+/* topスライド */
+#container2{
+  width:800px;
+  height: 350px;
+  transition: 1.0s ;
+}
+
+.image1 {
+background-image: url(image1.jpg);
+}
+.image2 {
+background-image: url(image2.jpg);
+}
+.image3 {
+background-image: url(image3.jpg);
+}
+.image4 {
+background-image: url(image4.jpg);
+}
+.image5 {
+background-image: url(image5.jpg);
+}
+
+.image1:hover, .image2:hover, .image3:hover, .image4:hover, .image5:hover{
+ opacity:0.7;
+ transition: 1.0s ;
+}
