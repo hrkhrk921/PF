@@ -5,9 +5,9 @@ class CounselsController < ApplicationController
 
   def show
     @counsel = Counsel.find(params[:id])
-    @counsel_comment = @counsel.counsel_comments.build
-    @counsel_comments = @counsel.counsel_comments
-    @comment_reply = @counsel.counsel_comments.build
+    @counsel_comments = @counsel.counsel_comments.all
+    @counsel_comment = @counsel.counsel_comments.build #投稿全体へのコメント投稿用の変数
+    @counsel_comment_reply = @counsel.counsel_comments.build #コメントに対する返信用の変数
   end
 
   def edit

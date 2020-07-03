@@ -25,11 +25,6 @@ body{
   height: 100%;
 }
 
-.bg-4 {
-  background-color: black;
-  color: #ffffff;
-  width: 100%
-}
 .navbar-left span{
   color: white;
   font-size: 30px;
@@ -64,53 +59,13 @@ div#container{
     height: 100%
 }
 div#main{
-    padding-bottom:120px; /* 高さ50pxのフッターだから、その分空ける */
+    padding-bottom:100px; /* 高さ50pxのフッターだから、その分空ける */
 }
 div#footer{
     position: absolute;  /* フッターを絶対配置に指定する設定 */
     bottom: 0;           /* フッターを一番下に置く */
     width: 100%;
-    height: 120px;        /* フッターの高さ */
-    background-color:#CCCCCC;
+    height: 60px;        /* フッターの高さ */
+    color:white;
 }
 
-
-/*----- footerのSNSデザイン-----*/
-
-i{
-  font-size:30px;
-}
-
-.fa-instagram {
-  color: #FF3366;
-  margin-right: 10px;
-}
-
-.fa-facebook {
-  color: #003399;
-  margin-right: 10px;
-}
-
-.fa-youtube {
-  color: #FF3300;
-}
-.fa-cat{
- color:white;
-}
-.sns{
- border-bottom: dotted 3px gray;
-}
-
-.social{
-  display:block;
-  margin-top:5px;
-}
-
-span .brand:hover {
-  color:#FFFF88;
-  transition-duration: 0.5s;
-}
-
-.glyphicon-search{
-  color: #fff;
-}

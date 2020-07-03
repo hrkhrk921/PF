@@ -22,8 +22,6 @@
         <% end %>
     </div>
   </div>
-    
-
     <h2>comments</h2>
     <% @counsel_comments.each do |comment| %>
       <% if comment.parent_id.present? || comment.id.blank? %>
@@ -37,11 +35,11 @@
         <p> <%= comment.user.name %> : <%= reply.comment %></p>
         <% end %>
       </div>
-        <%= form_with(model:[@counsel,@comment_reply]) do |form| %>
+        <%= form_with(model:[@counsel,@counsel_comment_reply]) do |form| %>
         <div class="row">
           <div class="form-group col-md-6">
             <p><label>Reply</label></p>
-            <textarea class="form-control input-form" name="comment[comment]" rows="2"><%= @comment_reply.comment %></textarea>
+            <textarea class="form-control input-form" name="counsel_comment[comment]" rows="2"><%= @counsel_comment_reply.comment %></textarea>
           </div>
         </div>
           <%= form.hidden_field :counsel_id, value: @counsel.id %>
@@ -54,7 +52,7 @@
 
     <%= form_with(model:[@counsel,@counsel_comment]) do |form| %>
       <p><label>New Thread</label></p>
-      <textarea class="form-control input-form" name="comment[comment]" rows="5"><%= @counsel_comment.comment %></textarea>
+      <textarea class="form-control input-form" name="counsel_comment[comment]" rows="5"><%= @counsel_comment.comment %></textarea>
       <%= form.hidden_field :counsel_id, value: @counsel.id %>
         <div class="actions">
           <%= form.submit %>
