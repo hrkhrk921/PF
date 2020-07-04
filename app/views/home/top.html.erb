@@ -1,26 +1,73 @@
-<div class="container">
-  <h1>ようこそ！</h1>
-    <div class="row top">
-    <div class="col-lg-4">
-      <h1 class="welcome1"><strong>Welcome!</strong></h1>
-      <h5 class="welcome">ようこそ、NaganoCakeへ！このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。</h5>
-    </div>
-
-    <div class="col-lg-8">
-      <!--<p><img src="/assets/cafe.jpg" alt="#" class="img"><p>-->
-    <div id="container2">
-      <div id="theTarget">
-        <div class="image1 img-rounded"></div>
-        <div class="image2 img-rounded"></div>
-        <div class="image3 img-rounded"></div>
-        <div class="image4 img-rounded"></div>
-        <div class="image5 img-rounded"></div>
+<div class="row top">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <!--<p><img src="/assets/cafe.jpg" alt="#" class="img"><p>-->
+      <div id="container2">
+        <div id="theTarget">
+          <div class="image1 img-rounded"></div>
+          <div class="image2 img-rounded"></div>
+          <div class="image3 img-rounded"></div>
+          <div class="image4 img-rounded"></div>
+          <div class="image5 img-rounded"></div>
+        </div>
       </div>
-    </div>
-    </div>
   </div>
-  <div class="row">
-  <div class="col-6">ブログ投稿新着5件</div>
-  <div class="col-6">画像新着5件</div>
+</div>
+
+<hr class="my-10">
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class='table table-hover table-light'>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Blog新着</th>
+          <th></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @blogs.each do |blog| %>
+          <tr>
+            <td></td>
+            <td><%= link_to blog.title,blog, class: "blog_#{blog.id}" %></td>
+            <td><%= blog.created_at %></td>
+            <td>
+              <%= link_to(blog.user) do %>
+              <%= attachment_image_tag(blog.user, :image, format: 'jpeg', size: "30x30", fallback: "no-image-icon.jpg") %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
+</div>
+
+<hr class="my-10">
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <h5>photo新着3件</h5>
+    <% @photos.each do |photo| %>
+    <div class="col-20 col-md-15 col-lg-10">
+      <%= link_to photo_path(photo) do %>
+      <%= attachment_image_tag(photo, :image, size: "200x200") %>
+      <% end %>
+      <%= attachment_image_tag(photo.user, :image, format: 'jpeg', size: "30x30", fallback: "no-image-icon.jpg") %>
+      <%= link_to photo.user do %>
+      <%= photo.user.name%>
+      <% end %>
+      <!-- いいね機能 -->
+      <p id="favorite-<%= photo.id %>">
+      <%= render partial: 'favorites/favorite', locals: { photo: photo } %>
+      </p>
+    <% end %>
+  </div>
+  </div>
+  <div class="col-1"></div>
 </div>
