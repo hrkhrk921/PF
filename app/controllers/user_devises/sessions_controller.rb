@@ -37,4 +37,17 @@ class UserDevises::SessionsController < Devise::SessionsController
   def configure_account_update_params
      devise_parameter_sanitizer.permit(:account_update, keys: [:password])
   end
+
+protected
+  def reject_user#退会済みのメッセージ表示
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
+        flash[:error] = "退会済みです。"
+        redirect_to new_user_session_path
+      end
+    else
+      flash[:error] = "必須項目を入力してください。"
+    end
+  end
 end

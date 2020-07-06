@@ -14,7 +14,7 @@
           <th>introduction</th>
           <th><%= simple_format(@user.introduction) %></th>
           <% if @user == current_user %>
-            <th><%= link_to 'Edit', user_emend_path(@user), class: "btn-sm btn-success user_emend_#{@user.id}" %></th>
+            <th><%= link_to 'Edit', users_emend_path(@user), class: "btn-sm btn-success users_emend_#{@user.id}" %></th>
           <% end %>
         </tr>
         <% if @user == current_user %>
@@ -29,18 +29,18 @@
           <th>followers</th>
           <th><%= link_to @user.followed.count, user_followers_path(@user) %></th>
         </tr>
+        <% if @user == current_user %>
         <tr>
           <th>blog</th>
-          <th></th>
+          <th>投稿: <%= link_to @user.blogs.count, users_blog_path(@user) %>件</th>
         </tr>
         <tr>
           <th>photo</th>
-          <th></th>
+          <th>投稿: <%= link_to @user.photos.count, users_photo_path(@user) %>件</th>
         </tr>
-        <% if @user == current_user %>
         <tr>
           <th>counsel</th>
-          <th></th>
+          <th>投稿: <%= link_to @user.counsels.count, users_counsel_path(@user) %>件</th>
         </tr>
         <% end %>
       <!-- フォローボタン -->

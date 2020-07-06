@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     passwords:     'admin_devises/passwords',
     registrations: 'admin_devises/registrations'
   }
-
+  get 'users/confirm' => 'users#confirm'
+  put 'users/hide' => 'users#hide'
+  get 'users/emend' => 'users#emend'
+  get 'users/blog' => 'users#blog'
+  get 'users/photo' => 'users#photo'
+  get 'users/counsel' => 'users#counsel'
   #マイページのルート
   resources :users,only: [:show,:update,:index]do
     collection do
@@ -24,8 +29,8 @@ Rails.application.routes.draw do
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
   end
-  get 'user/emend' => 'users#emend'
-  get 'users/confirm' => 'users#confirm'
+
+
   #ブログのルート
   resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
     resource :blog_comments, only: [:create, :destroy]

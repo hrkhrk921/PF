@@ -1,0 +1,31 @@
+<div class="container">
+<div class="row">
+<h2>相談一覧</h2><%= link_to "マイページに戻る", user_path(current_user) %>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>相談</th>
+      <th></th>
+      <th>ステータス</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @counsels.each do |counsel| %>
+      <tr>
+        <td></td>
+        <td><%= link_to counsel.title,counsel, class: "counsel_#{counsel.id}" %></td>
+        <td><%= counsel.created_at %></td>
+        <% if counsel.is_settled? %>
+          <td class="col-xs-3">受付中</td>
+        <% else %>
+          <td class="col-xs-3">解決済み</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
