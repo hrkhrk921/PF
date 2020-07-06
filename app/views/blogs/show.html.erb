@@ -21,9 +21,13 @@
 		<h3>コメント</h3>
     <div class="row">
     <div class="col-3">
-      <%= form_for [@blog, @blog_comment] do |f| %>
-        <%= f.text_field :comment %>
-        <%= f.submit '送信' %>
+      <% if user_signed_in? %>
+        <%= form_for [@blog, @blog_comment] do |f| %>
+          <%= f.text_field :comment %>
+          <%= f.submit '送信' %>
+        <% end %>
+      <% else %>
+        <h6>コメントには登録が必要です</h6>
       <% end %>
     </div>
      <div class="col-9">

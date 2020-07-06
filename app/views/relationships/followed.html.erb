@@ -20,6 +20,7 @@
               <td><%= user.name %></td>
               <td>フォロー数：<%= user.follower.count %></td>
               <td>フォロワー数：<%= user.followed.count %></td>
+              <% if user_signed_in? %>
               <td>
                 <% if current_user != user %>
                   <% if current_user.following?(user) %>
@@ -29,6 +30,7 @@
                   <% end %>
                 <% end %>
               </td>
+              <% end %>
               <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
             </tr>
           <% end %>

@@ -29,10 +29,26 @@
           <th>followers</th>
           <th><%= link_to @user.followed.count, user_followers_path(@user) %></th>
         </tr>
+        <tr>
+          <th>blog</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>photo</th>
+          <th></th>
+        </tr>
+        <% if @user == current_user %>
+        <tr>
+          <th>counsel</th>
+          <th></th>
+        </tr>
+        <% end %>
       <!-- フォローボタン -->
+      <% if user_signed_in? %>
           <p id="follow-<%= @user.id %>">
             <%= render partial: 'relationships/follow', locals: { user: @user } %>
           </p>
+      <% end %>
       </table>
     </div>
   </div>
