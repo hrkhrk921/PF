@@ -1,7 +1,5 @@
 <div class="container">
-  <div class="flash">
-    <%= flash[:notice] %>
-  </div>
+  <p class="text-danger"><%= flash[:notice] %></p>
   <h2><%= @user.name %>さんの会員詳細</h2>
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">

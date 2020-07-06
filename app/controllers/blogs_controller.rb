@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user! ,only: [:edit,:new,:create,:update,:destroy]
   def index
     @blogs = Blog.page(params[:page]).per(8).order('id DESC')
   end

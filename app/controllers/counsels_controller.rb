@@ -1,4 +1,5 @@
 class CounselsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit,:new,:create,:update,:destroy]
   def index
     @counsels = Counsel.all
   end

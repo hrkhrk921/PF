@@ -1,10 +1,11 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user! ,only: [:edit,:update,:create,:destroy]
   def new
     @photo = Photo.new
   end
 
   def index
-    @photos = Photo.all
+    @photos = Photo.page(params[:page]).per(9).order('id DESC')
   end
 
   def show

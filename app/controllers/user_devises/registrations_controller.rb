@@ -67,7 +67,7 @@ class UserDevises::RegistrationsController < Devise::RegistrationsController
   end
   def after_update_path_for(resource)
     flash[:notice] = "パスワードの変更に成功しました。"
-    customers_emend_path
+    users_emend_path
   end
   protected
   def configure_permitted_parameters

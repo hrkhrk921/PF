@@ -1,7 +1,5 @@
 <div class="container">
-  <div class="flash">
-    <%= flash[:notice] %>
-  </div>
+  <p class="text-danger"><%= flash[:notice] %></p>
   <h1>相談内容</h1>
   <div class="row">
     <div class="col-5">
@@ -22,40 +20,56 @@
         <% end %>
     </div>
   </div>
-    <h2>comments</h2>
+    <h3>コメント</h3>
     <% @counsel_comments.each do |comment| %>
       <% if comment.parent_id.present? || comment.id.blank? %>
         <% next %>
       <% end %>
         <hr>
-        <p> <%= comment.user.name %> : <%= comment.comment %></p>
-        <p> date : <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
-      <div id="reply_area">
-        <% comment.replies.order(:created_at).each do |reply| %>
-        <p> <%= comment.user.name %> : <%= reply.comment %></p>
-        <% end %>
+      <div class="row">
+        <div class="col-10">
+        <p> <%= link_to(@counsel.user) do %><%= comment.user.name %><% end %> : <%= simple_format(comment.comment) %></p>
+        <p> date : <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+        </div>
       </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div id="reply_area">
+            <% comment.replies.order(:created_at).each do |reply| %>
+            <p> <%= link_to(@counsel.user) do %><%= comment.user.name %><% end %> : <%= simple_format(reply.comment) %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% if user_signed_in? %>
         <%= form_with(model:[@counsel,@counsel_comment_reply]) do |form| %>
         <div class="row">
           <div class="form-group col-md-6">
-            <p><label>Reply</label></p>
-            <textarea class="form-control input-form" name="counsel_comment[comment]" rows="2"><%= @counsel_comment_reply.comment %></textarea>
+            <p><label>返信コメント</label></p>
+            <textarea class="form-control input-form" name="counsel_comment[comment]" rows="1"><%= @counsel_comment_reply.comment %></textarea>
           </div>
         </div>
           <%= form.hidden_field :counsel_id, value: @counsel.id %>
           <%= form.hidden_field :parent_id, value: comment.id%>
         <div class="actions">
-          <%= form.submit %>
+          <%= form.submit '返信'%>
         </div>
       <% end %>
+      <% else %>
+        <h5>返信には登録が必要です</h5>
+      <% end %>
     <% end %>
-
-    <%= form_with(model:[@counsel,@counsel_comment]) do |form| %>
-      <p><label>New Thread</label></p>
-      <textarea class="form-control input-form" name="counsel_comment[comment]" rows="5"><%= @counsel_comment.comment %></textarea>
-      <%= form.hidden_field :counsel_id, value: @counsel.id %>
-        <div class="actions">
-          <%= form.submit %>
-        </div>
+    <% if user_signed_in? %>
+      <%= form_with(model:[@counsel,@counsel_comment]) do |form| %>
+        <h4><label>コメント</label></h4>
+        <textarea class="form-control input-form" name="counsel_comment[comment]" rows="5"><%= @counsel_comment.comment %></textarea>
+        <%= form.hidden_field :counsel_id, value: @counsel.id %>
+          <div class="actions">
+            <%= form.submit 'コメント送信' %>
+          </div>
+      <% end %>
+    <% else %>
+        <h4>コメントには登録が必要です</h4>
     <% end %>
   </div>
