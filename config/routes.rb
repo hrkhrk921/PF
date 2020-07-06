@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followed', as: 'followers'
   end
   get 'user/emend' => 'users#emend'
+  get 'users/confirm' => 'users#confirm'
   #ブログのルート
   resources :blogs, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
     resource :blog_comments, only: [:create, :destroy]

@@ -1,29 +1,36 @@
 <div class="container">
-<div class="row">
-<h2>User info</h2>
-<div class="col-xs-10">
-<%= form_for(@user) do |f| %>
+  <div class="row">
+    <h2>User info</h2>
+    <div class="col-1"></div>
+    <div class="col-10">
+      <%= form_for(@user) do |f| %>
+        <div class="field">
+          <%= f.label :ニックネーム %>
+          <%= f.text_field :name, class: "name" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :ニックネーム %>
-    <%= f.text_field :name, class: "name" %>
+        <div class="field">
+          <%= f.label :プロフィール画像 %>
+          <%= f.attachment_field :image, class: "user_image" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :自己紹介 %>
+          <%= f.text_area :introduction, class: 'introduction form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :プロフィール画像 %>
-    <%= f.attachment_field :image, class: "user_image" %>
+  <div class="row">
+    <div class="col-4">
+      <h5>パスワード変更・退会はこちら</h5>
+    </div>
+    <div class="col-8">
+      <button><%= link_to '退会する', users_confirm_path %></button>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :自己紹介 %>
-    <%= f.text_area :introduction, class: "introduction" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-</div>
-</div>
 </div>

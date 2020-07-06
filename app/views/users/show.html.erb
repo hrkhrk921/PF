@@ -1,33 +1,39 @@
 <div class="container">
-<div class="row">
-<div class="col-xs-10">
-<table class='table'>
-  <tr><%= attachment_image_tag(@user, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg") %></tr>
-  <tr>
-    <th>name</th>
-    <th><%= @user.name %></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= @user.introduction %></th>
-    <% if @user == current_user %>
-      <th><%= link_to 'Edit', user_emend_path(@user), class: "btn-sm btn-success user_emend_#{@user.id}" %></th>
-      <th><%= link_to "いいねした画像", favorites_users_path %></th>
-    <% end %>
-  </tr>
-  <tr>
-    <th>follows</th>
-    <th><%= link_to @user.follower.count, user_follows_path(@user) %></th>
-    <th>followers</th>
-    <th><%= link_to @user.followed.count, user_followers_path(@user) %></th>
-  </tr>
-<!-- フォローボタン -->
-    <p id="follow-<%= @user.id %>">
-      <%= render partial: 'relationships/follow', locals: { user: @user } %>
-    </p>
-</table>
-</div>
-</div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table class='table'>
+        <tr><%= attachment_image_tag(@user, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg") %></tr>
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= simple_format(@user.introduction) %></th>
+          <% if @user == current_user %>
+            <th><%= link_to 'Edit', user_emend_path(@user), class: "btn-sm btn-success user_emend_#{@user.id}" %></th>
+          <% end %>
+        </tr>
+        <% if @user == current_user %>
+        <tr>
+          <th>favorites</th>
+          <th><%= link_to "いいねした画像", favorites_users_path %></th>
+        </tr>
+        <% end %>
+        <tr>
+          <th>follows</th>
+          <th><%= link_to @user.follower.count, user_follows_path(@user) %></th>
+          <th>followers</th>
+          <th><%= link_to @user.followed.count, user_followers_path(@user) %></th>
+        </tr>
+      <!-- フォローボタン -->
+          <p id="follow-<%= @user.id %>">
+            <%= render partial: 'relationships/follow', locals: { user: @user } %>
+          </p>
+      </table>
+    </div>
+  </div>
 </div>
