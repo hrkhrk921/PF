@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def update
   	@user = current_user
     if @user.update(user_params)
+      flash[:notice] = "更新されました！"
       redirect_to user_path(@user)
     else
       render "emend"

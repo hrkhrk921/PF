@@ -24,9 +24,9 @@ class CounselsController < ApplicationController
     @counsel.user_id = current_user.id
     if @counsel.save
       redirect_to counsel_path(@counsel)
+      flash[:notice] = "投稿されました!"
     else
-      @counsels = Counsel.all
-      render 'index'
+      render :new
     end
   end
 

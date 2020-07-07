@@ -21,9 +21,9 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
     if @photo.save
       redirect_to @photo
+      flash[:notice] = "投稿されました!"
     else
-      @photos = Photo.all
-      render 'index'
+      render :new
     end
   end
 

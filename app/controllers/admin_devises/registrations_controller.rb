@@ -60,6 +60,7 @@ class AdminDevises::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def after_inactive_sign_up_path_for(resource)
-      admin_home_path
+    flash[:notice] = "おつかれさまです！"
+    admin_home_path
   end
 end

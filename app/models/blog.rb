@@ -3,5 +3,7 @@ class Blog < ApplicationRecord
   belongs_to :category,optional: true
   belongs_to :user
   has_many :blog_comments
-  validates :title, presence: true # この行を追加
+  validates :title, presence: { message: 'タイトルを入力してください' }
+  validates :category, presence: { message: 'カテゴリーを選択してください' }
+  validates :body, presence: { message: '本文を入力してください' }
 end

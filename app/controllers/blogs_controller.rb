@@ -28,8 +28,7 @@ class BlogsController < ApplicationController
       redirect_to @blog
       flash[:notice] = "投稿されました!"
     else
-      @blogs = Blog.all
-      render 'index'
+      render :new
     end
   end
 

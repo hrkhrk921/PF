@@ -8,7 +8,9 @@
     <div class="col-7">
       <%= simple_format(@photo.body) %>
       photo_by: 
+      <%= link_to @photo.user do %>
       <%= @photo.user.name%>
+      <% end %>
       <!-- いいね機能 -->
       <p id="favorite-<%= @photo.id %>">
       <%= render partial: 'favorites/favorite', locals: { photo: @photo } %>

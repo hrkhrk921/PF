@@ -1,11 +1,9 @@
 <div class="container">
 <div class="row">
-  <div class="col-xs-2 col-xs-offset-1">
-    <h4>カテゴリー一覧</h4>
-  </div>
+    <h2>カテゴリー</h2>
 </div>
 <div class="row">
-  <div class="col-xs-6 col-xs-offset-1">
+  <div class="col-6 col-offset-1">
     <% if @category.errors.any? %>
       <div id="error_explanation">
           <h2><%= pluralize(@category.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -20,7 +18,7 @@
 </div>
 <!-- カテゴリー検索フォーム  -->
 <div class="row">
-  <div class="col-xs-6 col-xs-offset-1">
+  <div class="col-6 col-offset-1">
     <%= form_for(@category, url: {controller: "admin/categories", action: "create"}) do |f| %>
       <label>ブログカテゴリー</label>
       <%= f.text_field :name %>
@@ -32,26 +30,26 @@
 </div>
 <!-- カテゴリー一覧表示  -->
 <div class="row">
-  <div class="col-xs-5 col-xs-offset-1">
+  <div class="col-5 col-offset-1">
     <table class="table">
       <thead class="thead-lignt">
         <tr>
-          <th class="col-xs-4">カテゴリー</th>
-          <th class="col-xs-3">状態</th>
-          <th class="col-xs-5"></th>
+          <th>カテゴリー</th>
+          <th>状態</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @categories.each do |category| %>
           <tr>
-            <td class="col-xs-4"><%= category.name %></td>
+            <td><%= category.name %></td>
             <% if category.is_valid? %>
-              <td class="col-xs-3">有効</td>
+              <td>有効</td>
             <% else %>
-              <td class="col-xs-3">無効</td>
+              <td>無効</td>
             <% end %>
             <div class="text-center">
-              <td><%= link_to '編集する',  edit_admin_category_path(category), class: "col-xs-5 btn btn-primary btn-sm" %></td>
+              <td><%= link_to '編集する',  edit_admin_category_path(category), class: "btn btn-primary btn-sm" %></td>
             </div>
           </tr>
         <% end %>
