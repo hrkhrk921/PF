@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resource :favorites, only: [:create, :destroy]
   end
 
+  get '/search' => 'searches#search', as: 'search'
+
   #管理者のルート
   namespace :admin do
     get 'home' => 'home#top' #注文件数の合計を表示(管理者のみ)
