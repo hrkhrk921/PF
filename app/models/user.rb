@@ -21,8 +21,8 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower
   #バリデーション
   validates :name, presence: true
-  validates :email, presence: true ,format:{with: VALID_EMAIL_REGEX, allow_blank: true}, uniqueness: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true ,format:{with: VALID_EMAIL_REGEX, allow_blank: true}, uniqueness: true
   #ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)
