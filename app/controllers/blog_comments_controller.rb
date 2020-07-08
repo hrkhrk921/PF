@@ -11,6 +11,15 @@ class BlogCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @blog_comment = BlogComment.find(params[:blog_id])
+    if @blog_comment.user != current_user
+      redirect_to request.referer
+    end
+    @blog_comment.destroy
+    redirect_to request.referer
+  end
+
   private
   def blog_comment_params
     params.require(:blog_comment).permit(:comment)

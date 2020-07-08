@@ -11,6 +11,15 @@ class CounselCommentsController < ApplicationController
       end
   end
 
+  def destroy
+    @counsel_comment = CounselComment.find(params[:counsel_id])
+    if @counsel_comment.user != current_user
+      redirect_to request.referer
+    end
+    @counsel_comment.destroy
+    redirect_to request.referer
+  end
+
   private
   def counsel_comment_params
     params.require(:counsel_comment).permit(:comment,:user_id,:counsel_id,:parent_id)

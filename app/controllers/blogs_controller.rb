@@ -1,7 +1,13 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user! ,only: [:edit,:new,:create,:update,:destroy]
   def index
+    @categories = Category.where(is_valid: "true")
+    if params[:category_id]#params[:id]が存在するかどうか
+    @category = Category.find(params[:category_id])
+    @blogs = @category.blogs.page(params[:page]).per(8).order('id DESC')
+    else
     @blogs = Blog.page(params[:page]).per(8).order('id DESC')
+    end
   end
 
   def show

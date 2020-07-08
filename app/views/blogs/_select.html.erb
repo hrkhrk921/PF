@@ -1,0 +1,13 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>カテゴリー検索</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.each do |category| %>
+        <tr><td><%= link_to "#{category.name}", controller: "blogs", action: "index", category_id: category.id %></td><!--コントローラーへidを送る方法-->
+        </tr>
+      <% end %>
+    </tbody>
+</table>
