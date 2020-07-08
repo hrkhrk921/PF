@@ -16,10 +16,11 @@
 //= require bootstrap
 //= require summernote/summernote-bs4.min
 //= require summernote-init
+//= require turbolinks
 //= require activestorage
 //= require_tree .
 
-$(document).ready(function () {
+$(document).on('turbolinks:load',function () {
   $("#theTarget").skippr({
       // スライドショーの変化 ("fade" or "slide")
       transition : 'fade',
