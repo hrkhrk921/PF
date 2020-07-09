@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_070906) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title", null: false
-    t.text "body", null: false
+    t.text "body", limit: 4294967295, null: false
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.string "image_id"
