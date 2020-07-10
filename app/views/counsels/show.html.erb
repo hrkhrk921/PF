@@ -62,7 +62,7 @@
     <% end %>
     <% if user_signed_in? %>
       <%= form_with(model:[@counsel,@counsel_comment]) do |form| %>
-        <h4><label>コメント</label></h4>
+        <h4><label></label></h4>
         <textarea class="form-control input-form" name="counsel_comment[comment]" rows="5"><%= @counsel_comment.comment %></textarea>
         <%= form.hidden_field :counsel_id, value: @counsel.id %>
           <div class="actions">
