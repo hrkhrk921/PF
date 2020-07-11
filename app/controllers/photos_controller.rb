@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :authenticate_user!, only: %i[edit update create destroy]
+  before_action :authenticate_user! ,only: [:edit,:update,:create,:destroy]
   def new
     @photo = Photo.new
   end
@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
     if @photo.save
       redirect_to @photo
-      flash[:notice] = '投稿されました!'
+      flash[:notice] = "投稿されました!"
     else
       render :new
     end
@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     if @photo.update(photo_params)
       redirect_to photo_path(@photo)
-      flash[:notice] = '更新されました!'
+      flash[:notice] = "更新されました!"
     else
       render :edit
     end
@@ -44,7 +44,6 @@ class PhotosController < ApplicationController
   end
 
   private
-
   def photo_params
     params.require(:photo).permit(:body, :image)
   end
