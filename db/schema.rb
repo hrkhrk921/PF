@@ -10,107 +10,105 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_070906) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+ActiveRecord::Schema.define(version: 20_200_702_070_906) do
+  create_table 'admins', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_admins_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_admins_on_reset_password_token', unique: true
   end
 
-  create_table "blog_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "blog_id"
-    t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["blog_id"], name: "index_blog_comments_on_blog_id"
-    t.index ["user_id"], name: "index_blog_comments_on_user_id"
+  create_table 'blog_comments', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'blog_id'
+    t.string 'comment'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['blog_id'], name: 'index_blog_comments_on_blog_id'
+    t.index ['user_id'], name: 'index_blog_comments_on_user_id'
   end
 
-  create_table "blogs", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "body", limit: 4294967295, null: false
-    t.integer "user_id", null: false
-    t.integer "category_id", null: false
-    t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'blogs', force: :cascade do |t|
+    t.string 'title', null: false
+    t.text 'body', limit: 4_294_967_295, null: false
+    t.integer 'user_id', null: false
+    t.integer 'category_id', null: false
+    t.string 'image_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
-    t.boolean "is_valid", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'categories', force: :cascade do |t|
+    t.string 'name', null: false
+    t.boolean 'is_valid', default: true, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "counsel_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "counsel_id"
-    t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "parent_id"
-    t.index ["counsel_id"], name: "index_counsel_comments_on_counsel_id"
-    t.index ["parent_id"], name: "index_counsel_comments_on_parent_id"
-    t.index ["user_id"], name: "index_counsel_comments_on_user_id"
+  create_table 'counsel_comments', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'counsel_id'
+    t.string 'comment'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'parent_id'
+    t.index ['counsel_id'], name: 'index_counsel_comments_on_counsel_id'
+    t.index ['parent_id'], name: 'index_counsel_comments_on_parent_id'
+    t.index ['user_id'], name: 'index_counsel_comments_on_user_id'
   end
 
-  create_table "counsels", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "image_id"
-    t.string "title", null: false
-    t.text "body", null: false
-    t.boolean "is_settled", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'counsels', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.string 'image_id'
+    t.string 'title', null: false
+    t.text 'body', null: false
+    t.boolean 'is_settled', default: true, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "photo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["photo_id"], name: "index_favorites_on_photo_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
+  create_table 'favorites', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'photo_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['photo_id'], name: 'index_favorites_on_photo_id'
+    t.index ['user_id'], name: 'index_favorites_on_user_id'
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "image_id", null: false
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'photos', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.string 'image_id', null: false
+    t.text 'body'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'relationships', force: :cascade do |t|
+    t.integer 'follower_id'
+    t.integer 'followed_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.boolean "is_valid", default: true, null: false
-    t.string "name", null: false
-    t.string "image_id"
-    t.text "introduction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.boolean 'is_valid', default: true, null: false
+    t.string 'name', null: false
+    t.string 'image_id'
+    t.text 'introduction'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-
 end

@@ -1,5 +1,5 @@
 class CounselsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit,:new,:create,:update,:destroy]
+  before_action :authenticate_user!, only: %i[edit new create update destroy]
   def index
     @counsels = Counsel.all
   end
@@ -7,8 +7,8 @@ class CounselsController < ApplicationController
   def show
     @counsel = Counsel.find(params[:id])
     @counsel_comments = @counsel.counsel_comments.all
-    @counsel_comment = @counsel.counsel_comments.build #投稿全体へのコメント投稿用の変数
-    @counsel_comment_reply = @counsel.counsel_comments.build #コメントに対する返信用の変数
+    @counsel_comment = @counsel.counsel_comments.build # 投稿全体へのコメント投稿用の変数
+    @counsel_comment_reply = @counsel.counsel_comments.build # コメントに対する返信用の変数
   end
 
   def edit
@@ -24,7 +24,7 @@ class CounselsController < ApplicationController
     @counsel.user_id = current_user.id
     if @counsel.save
       redirect_to counsel_path(@counsel)
-      flash[:notice] = "投稿されました!"
+      flash[:notice] = '投稿されました!'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class CounselsController < ApplicationController
     @counsel = Counsel.find(params[:id])
     if @counsel.update(counsel_params)
       redirect_to counsel_path(@counsel)
-      flash[:notice] = "更新されました!"
+      flash[:notice] = '更新されました!'
     else
       render :edit
     end
@@ -47,8 +47,8 @@ class CounselsController < ApplicationController
   end
 
   private
+
   def counsel_params
     params.require(:counsel).permit(:title, :body, :image, :is_settled)
   end
 end
-

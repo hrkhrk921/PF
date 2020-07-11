@@ -1,12 +1,12 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user! ,only: [:edit,:new,:create,:update,:destroy]
+  before_action :authenticate_user!, only: %i[edit new create update destroy]
   def index
-    @categories = Category.where(is_valid: "true")
-    if params[:category_id]#params[:id]が存在するかどうか
-    @category = Category.find(params[:category_id])
-    @blogs = @category.blogs.page(params[:page]).per(8).order('id DESC')
+    @categories = Category.where(is_valid: 'true')
+    if params[:category_id] # params[:id]が存在するかどうか
+      @category = Category.find(params[:category_id])
+      @blogs = @category.blogs.page(params[:page]).per(8).order('id DESC')
     else
-    @blogs = Blog.page(params[:page]).per(8).order('id DESC')
+      @blogs = Blog.page(params[:page]).per(8).order('id DESC')
     end
   end
 
@@ -32,7 +32,7 @@ class BlogsController < ApplicationController
     @blog.user_id = current_user.id
     if @blog.save
       redirect_to @blog
-      flash[:notice] = "投稿されました!"
+      flash[:notice] = '投稿されました!'
     else
       render :new
     end
@@ -42,7 +42,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
       redirect_to blog_path(@blog)
-      flash[:notice] = "更新されました!"
+      flash[:notice] = '更新されました!'
     else
       render :edit
     end
@@ -55,6 +55,7 @@ class BlogsController < ApplicationController
   end
 
   private
+
   def blog_params
     params.require(:blog).permit(:title, :body, :image, :category_id)
   end

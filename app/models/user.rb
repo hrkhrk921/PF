@@ -7,23 +7,23 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :counsels
   has_many :photos
-  #いいね
+  # いいね
   has_many :favorites
   has_many :favorite_photos, through: :favorites, source: :photo
-  #フォロー・フォロワー
+  # フォロー・フォロワー
   # フォロー取得
-  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   # フォロワー取得
-  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   # 自分がフォローしている人
   has_many :following_user, through: :follower, source: :followed
   # 自分をフォローしている人
   has_many :follower_user, through: :followed, source: :follower
-  #バリデーション
+  # バリデーション
   validates :name, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true ,format:{with: VALID_EMAIL_REGEX, allow_blank: true}, uniqueness: true
-  #ユーザーをフォローする
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX, allow_blank: true }, uniqueness: true
+  # ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
@@ -38,8 +38,8 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
-  #退会済みのアカウントをはじく
+  # 退会済みのアカウントをはじく
   def active_for_authentication?
-  super && (self.is_valid == true)
+    super && (is_valid == true)
   end
 end

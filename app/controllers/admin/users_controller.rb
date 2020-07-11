@@ -16,13 +16,15 @@ class Admin::UsersController < ApplicationController
     @user = user.find(params[:id])
     if @user.update(user_params)
       redirect_to admin_user_path(@user)
-      flash[:notice] = "更新されました!"
+      flash[:notice] = '更新されました!'
     else
       render :edit
     end
   end
-private
+
+  private
+
   def user_params
-    params.require(:user).permit(:email,:name,:is_valid )
+    params.require(:user).permit(:email, :name, :is_valid)
   end
 end
