@@ -11,8 +11,8 @@
 				<%= @blog.user.name %></p>
 				<% end %>
 		<% if @blog.user == current_user %>
-          <p><%= link_to 'Edit', edit_blog_path(@blog), class: "btn-sm btn-success edit_blog_#{@blog.id}" %></p>
-          <p><%= link_to 'Destroy', @blog, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_blog_#{@blog.id}"%></p>
+          <%= link_to 'Edit', edit_blog_path(@blog), class: "btn-sm btn-success edit_blog_#{@blog.id}" %>
+          <%= link_to 'Destroy', @blog, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_blog_#{@blog.id}"%>
         <% end %>
 		</div>
   </div>

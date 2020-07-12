@@ -9,7 +9,7 @@
       <%= simple_format(@photo.body) %>
       photo_by: 
       <%= link_to @photo.user do %>
-      <%= @photo.user.name%>
+        <%= @photo.user.name%>
       <% end %>
       <!-- いいね機能 -->
       <p id="favorite-<%= @photo.id %>">
@@ -17,8 +17,8 @@
       </p>
       <!--投稿ユーザと閲覧ユーザが一致で表示-->
       <% if @photo.user == current_user %>
-      <p><%= link_to 'Edit', edit_photo_path(@photo), class: "btn-sm btn-success edit_photo_#{@photo.id}" %></p>
-      <p><%= link_to 'Destroy', @photo, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_photo_#{@photo.id}"%></p>
+      <%= link_to 'Edit', edit_photo_path(@photo), class: "btn-sm btn-success edit_photo_#{@photo.id}" %>
+      <%= link_to 'Destroy', @photo, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_photo_#{@photo.id}"%>
       <% end %>
     </div>
   </div>

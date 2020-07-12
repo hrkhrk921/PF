@@ -15,8 +15,8 @@
         <%= @counsel.user.name %></p>
         <% end %>
     <% if @counsel.user == current_user %>
-          <p><%= link_to 'Edit', edit_counsel_path(@counsel), class: "btn-sm btn-success edit_counsel_#{@counsel.id}" %></p>
-          <p><%= link_to 'Destroy', @counsel, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_counsel_#{@counsel.id}"%></p>
+          <%= link_to 'Edit', edit_counsel_path(@counsel), class: "btn-sm btn-success edit_counsel_#{@counsel.id}" %>
+          <%= link_to 'Destroy', @counsel, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_counsel_#{@counsel.id}"%>
         <% end %>
     </div>
   </div>
@@ -28,7 +28,7 @@
         <hr>
       <div class="row">
         <div class="col-10">
-        <p> <%= link_to(comment.user) do %><%= comment.user.name %><% end %> : <%= simple_format(comment.comment) %></p>
+        <p> <%= link_to(comment.user) do %><%= comment.user.name %><% end %><%= simple_format(comment.comment) %></p>
         <p> date : <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
         </div>
       </div>
@@ -37,7 +37,12 @@
         <div class="col-10">
           <div id="reply_area">
             <% comment.replies.order(:created_at).each do |reply| %>
-            <p> <%= link_to(reply.user) do %><%= reply.user.name %><% end %> : <%= simple_format(reply.comment) %></p>
+              <%= link_to(reply.user) do %>
+                <%= reply.user.name %>
+              <% end %><%= simple_format(reply.comment) %>
+              <% unless current_user != reply.user %>
+              <%= link_to 'Destroy', counsel_counsel_comments_path(reply.id), class: 'btn-sm btn-danger', method: :delete, data: { confirm: '本当に消しますか？' } %>
+              <% end %>
             <% end %>
           </div>
         </div>
