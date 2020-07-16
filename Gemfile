@@ -76,6 +76,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
 gem 'kaminari'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 
 
