@@ -72,7 +72,7 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
 gem 'kaminari'
