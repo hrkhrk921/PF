@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
-  get 'contacts/create'
   root to: 'home#top'
   get '/about'=>'home#about'
 
