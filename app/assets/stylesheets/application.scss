@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";            /*ここを追加*/
+@import "bootstrap";
 @import "summernote-bs4";
 @import "summernote-custom-theme.min";
 
@@ -46,26 +46,24 @@ body{
   width :150px;
 }
 
-/*----- フッター下部設定 -----*/
+
 html,body{
-    height: 100%;   /* ブラウザ画面の高さ */
-                    /* htmlとbody要素は内包しているコンテンツの部分までしか高さが出ない*/
+    height: 100%;
 }
 div#container{
-    position: relative;      /* フッターを位置指定するための基準設定を、まずフッターの親に書く */
-    min-height: 100%;        /* 全部囲ってるdiv#containerは、”最低でも”高さ100%（＝ブラウザ画面めいっぱい） */
-                             /* min-heightは最低限の高さを指定するプロパティ。コンテンツ量が増えれば、高さは伸びる */
-    height: auto !important; /* IE6じゃmin-height使えないからIE6専用にこの行と次の行をこう書く */
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
     height: 100%
 }
 div#main{
-    padding-bottom:100px; /* 高さ50pxのフッターだから、その分空ける */
+    padding-bottom:100px;
 }
 div#footer{
-    position: absolute;  /* フッターを絶対配置に指定する設定 */
-    bottom: 0;           /* フッターを一番下に置く */
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 60px;        /* フッターの高さ */
+    height: 60px;
     color:white;
 }
 
@@ -102,10 +100,10 @@ background-image: url(image5.jpg);
  transition: 1.0s ;
 }
 
-/*ページネーション自体のデザイン*/
+/*ページネーション*/
 .pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  border: none;     /*枠線*/
+  color: #696969;
   text-align: center;
 }
 
