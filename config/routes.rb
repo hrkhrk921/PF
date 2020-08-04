@@ -55,6 +55,6 @@ Rails.application.routes.draw do
     get 'home' => 'home#top' #注文件数の合計を表示(管理者のみ)
     resources :categories, only: [:index, :edit, :create, :update]
     resources :users, only: [:index, :edit, :show, :update]
-    resources :contacts
+    resources :contacts, only: [:index, :show]
   end
 end
