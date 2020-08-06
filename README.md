@@ -17,7 +17,7 @@
 飼う前の準備・困ったときの相談・画像の共有
 
 ## 設計書
-#### 詳細設計
+### 詳細設計
 https://docs.google.com/spreadsheets/d/1LqXMLB_hk8nfL3oSeB9gY6YwbL_UWgMI/edit#gid=567998906
 
 ### 機能一覧
