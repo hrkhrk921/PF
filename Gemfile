@@ -88,3 +88,6 @@ end
 
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+
+#多言語化
+gem 'rails-i18n'
