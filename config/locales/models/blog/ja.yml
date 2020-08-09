@@ -1,0 +1,8 @@
+ja:  
+  blogs:  
+    index:  
+      title: ブログ一覧 # app/views/books/index.html.erb で t '.title'で呼び出せる  
+    new:  
+      title: ブログ新規作成 # こっちもapp/views/books/new.html.erb で t '.title'  
+    edit:  
+      title: ブログ編集  
