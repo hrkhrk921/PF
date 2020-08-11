@@ -1,0 +1,8 @@
+ja:
+  blogs:
+    index:
+      title: ブログ一覧
+    new:
+      title: ブログ新規作成
+    edit:
+      title: ブログ編集
