@@ -1,8 +1,10 @@
-ja:  
-  photos:  
-    index:  
-      title: 画像一覧 
-    new:  
-      title: 画像新規作成
-    edit:  
-      title: 画像編集  
+ja:
+  activerecord:
+    models:
+      photo: 写真
+    attributes:
+      photo:
+        title: タイトル
+        created_at: 作成日時
+        updated_at: 更新日時
+        body: ひとこと

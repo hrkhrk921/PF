@@ -1,0 +1,8 @@
+ja:
+  blogs:
+    index:
+      title: 写真一覧
+    new:
+      title: 新規作成
+    edit:
+      title: 編集
