@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      counsel: 相談
+    attributes:
+      counsel:
+        title: タイトル
+        created_at: 作成日時
+        updated_at: 更新日時
+        body: 相談内容
