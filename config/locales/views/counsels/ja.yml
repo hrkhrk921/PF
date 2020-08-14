@@ -1,0 +1,8 @@
+ja:
+  counsels:
+    index:
+      title: 相談一覧
+    new:
+      title: 新規作成
+    edit:
+      title: 相談編集
