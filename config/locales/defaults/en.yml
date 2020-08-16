@@ -1,0 +1,24 @@
+en:                              ## 言語名
+  dictionary:                    ## 共通系であることを示す
+    title:                       ## 画面のタイトル
+      create: "new"
+      update: "update"
+      destory:
+        confirm: "削除確認"
+    message:                     ## 固定メッセージ
+      create:
+        complete: "create"
+      update:
+        complete: "update"
+      destory:
+        confirm: "destory"
+    button:                      ## 表示するボタン
+      create: "新規作成"
+      search: "検索"
+      clear: "クリア"
+      update: "更新"
+      destory: "削除"
+      cancel: "キャンセル"
+  time:                          ## 表示する時間の形式
+    formats:
+      default: ! "%Y-%m-%d %H:%M:%S"
