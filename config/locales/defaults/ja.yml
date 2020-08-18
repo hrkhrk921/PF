@@ -21,4 +21,4 @@ ja:                              ## 言語名
       cancel: "キャンセル"
   time:                          ## 表示する時間の形式
     formats:
-      default: ! "%Y-%m-%d %H:%M:%S"
+      default: "%Y/%m/%d %H:%M:%S"
