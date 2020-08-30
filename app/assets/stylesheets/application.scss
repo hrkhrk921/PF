@@ -216,3 +216,30 @@ height: 360px;
    display: block;
    padding: 20px 0;
 }
+
+.sp-nav .close {
+   position: relative;
+   padding-left: 20px;
+}
+.sp-nav .close::before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 0;
+   display: block;
+   width: 16px;
+   height: 1px;
+   background: #fff;
+   transform: rotate( 45deg );
+}
+.sp-nav .close::after {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 0;
+   display: block;
+   width: 16px;
+   height: 1px;
+   background: #fff;
+   transform: rotate( -45deg );
+}
