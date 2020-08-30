@@ -121,7 +121,9 @@ background-image: url(image5.jpg);
 .text-center {
   text-align: center;
 }
-
+.col-xs-12 .image6{
+  background-size: 78% auto;
+}
 .image6 {
 background-image: url(image6.jpg);
 background-position: center center;
