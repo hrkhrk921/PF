@@ -13,6 +13,16 @@ RSpec.describe BlogComment, type: :model do
     click_link 'Strolls'
     click_link ('記事を読む'), match: :first
   end
+  describe 'バリデーションのテスト' do
+    let(:user) { create(:user) }
+    let!(:blog) { build(:blog, user_id: user.id) }
+    context 'bodyカラム' do
+      it '空欄でないこと' do
+        blog.body = ''
+        expect(blog.valid?).to eq false;
+      end
+    end
+  end
 
   describe '投稿詳細画面' do
     context "ログインしているユーザーが投稿者以外の場合" do
