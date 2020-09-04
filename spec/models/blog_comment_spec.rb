@@ -18,7 +18,7 @@ RSpec.describe BlogComment, type: :model do
     let!(:blog) { build(:blog, user_id: user.id) }
     context 'bodyカラム' do
       it '空欄でないこと' do
-        blog.body = ''
+        blog_comment.comment = ''
         expect(blog.valid?).to eq false;
       end
     end
