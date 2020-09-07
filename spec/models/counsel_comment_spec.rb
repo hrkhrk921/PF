@@ -15,7 +15,7 @@ RSpec.describe CounselComment, type: :model do
   end
   describe 'バリデーションのテスト' do
     let(:user) { create(:user) }
-    let!(:counsel) { build(:counsel, user_id: user.id) }
+    let!(:counsel_comment) { build(:counsel_comment, user_id: user.id) }
     context 'bodyカラム' do
       it '空欄でないこと' do
         counsel_comment.comment = ''
